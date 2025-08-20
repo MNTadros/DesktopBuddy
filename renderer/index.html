@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Desktop Buddy Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="m-0 p-0 w-full h-full bg-gray-800 flex items-center justify-center relative overflow-hidden">
+
+    <div id="bar-container"
+      class="flex flex-row items-center gap-2 w-full h-full justify-center relative">
+
+      <div id="status"
+       class="text-white text-lg font-sans transition-transform duration-300 [writing-mode:horizontal-tb] text-center whitespace-nowrap">
+        Checking active window...
+      </div>
+
+      <button id="move-btn"
+        class="px-2 py-1 text-xs font-medium bg-gray-700 text-white rounded hover:bg-gray-600 ml-2 transition-transform duration-300">
+        Move
+      </button>
+
+    </div>
+
+    <script src="renderer.js"></script>
+
+  </body>
+</html>
