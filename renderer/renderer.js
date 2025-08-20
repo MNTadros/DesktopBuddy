@@ -1,5 +1,5 @@
 const btn = document.getElementById('move-btn');
-const statusText = document.getElementById('status-text');
+const statusText = document.getElementById('status');
 const barContainer = document.getElementById('bar-container');
 
 // Handle move button click
@@ -21,6 +21,7 @@ function setHorizontalBar() {
   barContainer.className = 'flex flex-row items-center gap-2 w-full h-full justify-center relative';
   statusText.style.transform = 'rotate(0deg)';
   statusText.style.writingMode = 'horizontal-tb';
+  statusText.style.textOrientation = 'mixed';
   btn.style.transform = 'rotate(0deg)';
   btn.classList.remove('mb-2', 'mt-2');
   btn.classList.add('ml-2');
@@ -30,6 +31,7 @@ function setLeftBar() {
   barContainer.className = 'flex flex-col items-center gap-2 w-full h-full justify-center relative';
   statusText.style.transform = 'rotate(0deg)';
   statusText.style.writingMode = 'vertical-rl';
+  statusText.style.textOrientation = 'upright';
   btn.style.transform = 'rotate(0deg)';
   btn.classList.remove('ml-2', 'mr-2');
   btn.classList.add('mb-2');
@@ -37,9 +39,10 @@ function setLeftBar() {
 }
 function setRightBar() {
   barContainer.className = 'flex flex-col items-center gap-2 w-full h-full justify-center relative';
-  statusText.style.transform = 'rotate(180deg)';
+  statusText.style.transform = 'rotate(0deg)';
   statusText.style.writingMode = 'vertical-rl';
-  btn.style.transform = 'rotate(180deg)';
+  statusText.style.textOrientation = 'upright';
+  btn.style.transform = 'rotate(0deg)';
   btn.classList.remove('ml-2', 'mr-2');
   btn.classList.add('mt-2');
   btn.classList.remove('mb-2');
