@@ -1,0 +1,26 @@
+#bar-container {
+  height: 100px;
+}
+
+#dirt-tile {
+  bottom: 0;
+  height: 50%; 
+  background-image: url("../assets/dirt.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+#grass-tile {
+  bottom: 50%; 
+  height: 10%;
+  background-image: url("../assets/dirt_grass.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+#hedgehog {
+  bottom: 50%;
+  width: 40px;
+  height: auto;
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

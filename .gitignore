@@ -47,3 +47,5 @@ coverage/
 
 # Docs build artifacts
 DOCS/*.log
+
+/temp
