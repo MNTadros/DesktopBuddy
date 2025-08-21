@@ -22,7 +22,7 @@
 
 ## 📚 Documentation
 
-See [`/DOCS/index.html`](./DOCS/index.html) for live build progress, update logs, and screenshots.
+See [`DOCS`](https://mntadros.github.io/DesktopBuddy/DOCS/) for live build progress, update logs, and screenshots.
 
 ---
 
@@ -38,3 +38,8 @@ See [`/DOCS/index.html`](./DOCS/index.html) for live build progress, update logs
 
 Made by [MNTadros](https://github.com/MNTadros)
 
+
+## Installation
+
+- Newest install is [HERE](https://mntadros.github.io/DesktopBuddy/prod/DesktopBuddy.exe)
+- Currently its only Windows compatible

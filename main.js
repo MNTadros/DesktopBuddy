@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen, ipcMain, Tray, Menu } = require('electron');
+const { app, BrowserWindow, screen, ipcMain, Tray, Menu, Notification} = require('electron');
 const path = require('path');
 const activeWin = require('active-win');
 
@@ -54,6 +54,30 @@ function openSettingsWindow() {
 
   settingsWindow.loadFile('renderer/settings.html');
   settingsWindow.once('ready-to-show', () => settingsWindow.show());
+}
+
+function openPomodoroWindow() {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
+  const pomodoroWindow = new BrowserWindow({
+    width: 400,
+    height: 400,
+    resizable: false,
+    minimizable: false,
+    maximizable: false,
+    alwaysOnTop: true,
+    frame: false,
+    modal: true,
+    parent: mainWindow,
+    x: Math.floor(width / 2 - 200),
+    y: Math.floor(height / 2 - 200),
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  });
+
+  pomodoroWindow.loadFile('renderer/pomodoro.html');
+  pomodoroWindow.once('ready-to-show', () => pomodoroWindow.show());
 }
 
 // Event handlers
@@ -148,7 +172,7 @@ function getNextPosition(current) {
 
 // IPC Handlers
 function setupIpcHandlers() {
-  
+
   // Settings management
   ipcMain.on('settings-changed', handleSettingsChanged);
   ipcMain.on('close-settings-window', closeSettingsWindow);
@@ -159,6 +183,17 @@ function setupIpcHandlers() {
   // Hedgehog speed control
   ipcMain.handle('get-hedgehog-speed', getHedgehogSpeed);
   ipcMain.on('set-hedgehog-speed', setHedgehogSpeed);
+
+  // Pomodoro window
+  ipcMain.on('open-pomodoro-window', openPomodoroWindow);
+
+  // Test notification
+  ipcMain.on('show-notification', (event, title, body) => {
+  new Notification({
+    title: title,
+    body: body
+  }).show();
+});
 }
 
 function handleSettingsChanged(event, newSettings) {

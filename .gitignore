@@ -34,7 +34,6 @@ Thumbs.db
 coverage/
 
 # Windows
-*.exe
 *.dll
 *.bat
 *.cmd

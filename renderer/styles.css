@@ -1,26 +1,156 @@
+/* Your existing styles */
+.pixel-clock {
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 20px;
+    color: #ff6b35;
+    text-shadow: 0 0 5px #ff6b35, 0 0 10px #ff6b35, 0 0 15px #ff6b35;
+    background: linear-gradient(145deg, #2d3748, #1a202c);
+    padding: 6px 12px;
+    border: 2px solid #4a5568;
+    border-radius: 6px;
+    image-rendering: pixelated;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.pixel-clock-container {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 30;
+}
+
+.status-text {
+    font-family: 'Press Start 2P', 'VT323', 'Courier New', Courier, monospace;
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+}
+
 #bar-container {
-  height: 100px;
+    height: 100px;
 }
 
 #dirt-tile {
-  bottom: 0;
-  height: 50%; 
-  background-image: url("../assets/dirt.png");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
+    bottom: 0;
+    height: 50%; 
+    background-image: url("../assets/dirt.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 #grass-tile {
-  bottom: 50%; 
-  height: 10%;
-  background-image: url("../assets/dirt_grass.png");
-  background-repeat: repeat-x;
-  background-size: auto 100%;
+    bottom: 50%; 
+    height: 10%;
+    background-image: url("../assets/dirt_grass.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
 #hedgehog {
-  bottom: 50%;
-  width: 40px;
-  height: auto;
-  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    bottom: 50%;
+    width: 40px;
+    height: auto;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    left: 0;
+    z-index: 10;
+}
+
+.pomodoro-container {
+    position: absolute;
+    left: 10px;
+    bottom: 40px;
+    background: rgba(26, 32, 44, 0.9);
+    border: 2px solid #4a5568;
+    border-radius: 6px;
+    padding: 6px 8px;
+    z-index: 30;
+    cursor: move;
+    min-width: 80px;
+    text-align: center;
+    user-select: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.pomodoro-clock {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #ff6b35;
+    text-shadow: 0 0 5px #ff6b35;
+    transition: all 0.3s ease;
+    margin-bottom: 4px;
+}
+
+.pomodoro-alert {
+    color: #ff4757;
+    text-shadow: 0 0 5px #ff4757;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.pomodoro-controls {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+}
+
+.pomodoro-btn {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pomodoro-btn:hover {
+    transform: scale(1.1);
+}
+
+.pomodoro-start {
+    background: #10b981;
+}
+
+.pomodoro-stop {
+    background: #ef4444;
+}
+
+.pomodoro-reset {
+    background: #3b82f6;
+}
+
+.pomodoro-minimize {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6b7280;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
 }

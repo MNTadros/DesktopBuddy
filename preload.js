@@ -10,4 +10,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   closeSettingsWindow: () => ipcRenderer.send('close-settings-window'),
   settingsChanged: (settings) => ipcRenderer.send('settings-changed', settings),
   onSettingsChanged: (callback) => ipcRenderer.on('settings-changed', (event, settings) => callback(settings)),
+  openPomodoroWindow: () => ipcRenderer.send('open-pomodoro-window'),
+  sendNotification: (title, body) => ipcRenderer.send('show-notification', title, body)
 });

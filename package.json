@@ -1,20 +1,32 @@
 {
   "name": "desktopbuddy",
   "version": "1.0.0",
-  "description": "",
+  "description": "A fun desktop buddy app built with Electron",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^7.8.3",
     "electron": "^37.3.1",
+    "electron-builder": "^26.0.12",
     "electron-reload": "^2.0.0-alpha.1"
   },
   "dependencies": {
     "active-win": "^8.2.1"
+  },
+  "build": {
+    "appId": "com.desktopbuddy.app",
+    "productName": "DesktopBuddy",
+    "win": {
+      "target": "portable",
+      "artifactName": "DesktopBuddy-Standalone.exe",
+      "signAndEditExecutable": false
+    }
   }
 }
