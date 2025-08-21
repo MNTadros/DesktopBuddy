@@ -41,5 +41,5 @@ Made by [MNTadros](https://github.com/MNTadros)
 
 ## Installation
 
-- Newest install is [HERE](https://github.com/MNTadros/DesktopBuddy/blob/main/prod/DesktopBuddy.exe)
+- Newest install is [HERE](https://github.com/MNTadros/DesktopBuddy/releases/tag/v1.0.0)
 - Currently its only Windows compatible
